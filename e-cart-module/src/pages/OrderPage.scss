@@ -1,0 +1,69 @@
+@import "../assets/scss/mixins.scss";
+.orderPage {
+  text-align: center;
+  @include position(relative,50px,normal,normal,normal);
+  &__orderCard {
+    @include flexbox(row, start, center);
+    background-color: white;
+    border-radius: 10px;
+    margin: 10px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25);
+
+    &__orderImages {
+      display: flex;
+      width: 40%;
+      margin: 10px;
+
+      &-image {
+        @include img-div(100px, 100px);
+        margin: 10px;
+      }
+
+      &-image img {
+        @include img-fit(contain);
+      }
+
+      &-overflow {
+        font-size: 20px;
+        text-align: start;
+        align-content: end;
+      }
+    }
+
+    &-date,
+    &-price {
+      width: 30%;
+      text-align: center;
+      font-weight: bold;
+    }
+  }
+  &__modal, .overlay{
+    @include position(fixed,0,0,0,0);
+  }
+  .overlay{
+    background: rgba(49,49,49,0.8);
+  }
+  &__modal{
+    top:100px;
+    bottom:100px;
+    overflow: scroll;
+
+  }
+}
+@media screen and (max-width:767px){
+    .orderPage{
+        &__modal{
+            top:50px;
+            bottom:50px;
+        }
+        &__orderCard{
+            &__orderImages{
+                width:60%;
+            }
+            &-price{
+                width:40%;
+                display:none;
+            }
+        }
+    }
+}

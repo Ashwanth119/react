@@ -1,0 +1,57 @@
+// Mixin to give width and height to a button
+@mixin btn($wid) {
+  background-color: white;
+  border: 1px solid black;
+  width: $wid;
+  height: $wid;
+  text-align: center;
+}
+
+// Mixin to create text ellipsis
+@mixin text-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin:8px 0px;
+}
+
+// Mixin to create ellipsis for paragraph of count lines
+@mixin para-ellipsis($count) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $count;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 8px 0px;
+}
+
+// Mixin to set height and width to a div that contains img
+@mixin img-div($w,$h){
+    width: $w;
+    height: $h;
+    overflow: hidden;
+}
+
+// Mixin to fit img
+@mixin img-fit($fit){
+    width: 100%;
+    height: 100%;
+    object-fit: $fit;
+}
+
+// Mixin to create flexbox with flex-direction, justify-content, align-items
+@mixin flexbox($direction, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+// Mixin to create a position with top, right, bottom, left
+@mixin position($position, $top, $right, $bottom, $left){
+  position:$position;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}

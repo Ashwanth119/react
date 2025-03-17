@@ -1,0 +1,127 @@
+@import "../assets/scss/mixins.scss";
+
+.cart {
+  @include flexbox(row, space-between, normal);
+  @include position(relative,50px,normal,normal,normal);
+  width: 100%;
+  padding: 10px 4px;
+
+  &__cartPage {
+    width: 60%;
+    text-align: center;
+    padding: 10px;
+
+    &__cartCard {
+      width: 100%;
+      &-cardTitle {
+        margin: 10px 10px;
+      }
+      &__card {
+        width: 95%;
+        padding: 10px;
+        margin: 10px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25);
+
+        &__detailSection {
+          display: flex;
+          padding: 10px;
+          &-img {
+            @include img-div(30%, 100px);
+            margin: 10px 0px;
+            padding: 0px;
+          }
+
+          &-img img {
+            @include img-fit(contain);
+          }
+
+          &__display {
+            width: 70%;
+            padding: 10px;
+            &-title {
+              @include text-ellipsis;
+            }
+
+            &-des {
+              @include para-ellipsis(2);
+            }
+          }
+        }
+
+        &__buttonSection {
+          @include flexbox(row, start, center);
+          padding: 10px;
+          height: 40px;
+
+          &__countButton {
+            width: 30%;
+            height: 30px;
+            @include flexbox(row, center, normal);
+          }
+
+          &-deleteBtn {
+            width: 70%;
+            button {
+              height: 30px;
+            }
+          }
+        }
+      }
+    }
+    &-footer {
+      width: 95%;
+      height: 80px;
+      margin: 10px;
+      padding: 10px;
+      @include flexbox(row, end, center);
+      @include position(sticky, normal, normal, 0px, normal);
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25);
+      button {
+        width: 200px;
+        height: 50px;
+        background-color: #fb641b;
+        border: none;
+        color: white;
+        margin: 10px;
+        font-size: 20px;
+      }
+    }
+  }
+  &__cartSummary {
+    width: 40%;
+    @include flexbox(column, start, center);
+    padding: 20px 4px;
+  }
+}
+.emptyCart {
+  @include flexbox(row, start, center);
+}
+@media screen and (min-width:768px) and (max-width:1023px){
+  .cart{
+    &__cartPage{
+      width:50%;
+    }
+    &__cartSummary{
+      width:50%;
+    }
+  }
+}
+@media screen and (max-width:767px){
+  .cart{
+    flex-direction: column;
+    &__cartPage{
+      width:90%;
+      &-footer{
+        width:100%;
+        padding: 0px;
+      }
+    }
+    &__cartSummary{
+      width:100%;
+    }
+  }
+}
