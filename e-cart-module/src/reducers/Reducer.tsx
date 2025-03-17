@@ -89,7 +89,7 @@ export const Slice = createSlice({
         return item;
       });
       state.cartArray = state.cartArray.filter(
-        (item) => item.id !== action.payload.id
+        (item) => item.count >0
       );
       state.userIndex !== -1 &&
         localStorage.setItem(
