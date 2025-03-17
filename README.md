@@ -42,7 +42,7 @@ To run this project locally, follow these steps:
 1. **Clone the repository**:
 
     ```bash
-    git clone https://github.com/divami-learning/AshwanthDivami-learning/tree/react/final-assignment
+    git clone https://github.com/Ashwanth119/react/tree/main
     cd e-cart-module
     ```
 
@@ -80,4 +80,4 @@ To run this project locally, follow these steps:
 
 ## Author
 
-[Ashwanth Thimmareddy](https://github.com/AshwanthDivami)
+[Ashwanth Thimmareddy](https://github.com/Ashwanth119)
