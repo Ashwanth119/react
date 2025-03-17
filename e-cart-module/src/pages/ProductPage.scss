@@ -1,0 +1,143 @@
+@import "../assets/scss/mixins.scss";
+
+.filterBar {
+  @include flexbox(row, space-evenly, center);
+  @include position(fixed,50px,normal,normal,normal);
+  flex-wrap: wrap;
+  padding: 10px;
+  background-color: rgb(158, 157, 157);
+  z-index:2;
+  width:100%;
+}
+.filterBar button {
+  border: none;
+  background-color: white;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 5px;
+  width: 120px;
+}
+
+.filterBar select {
+  border: none;
+  background-color: white;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 5px;
+  width: 120px;
+}
+
+.productPage {
+  display: flex;
+  flex-wrap: wrap;
+  @include position(relative,105px,normal,normal,normal);
+  width: 100%;
+  justify-content: center;
+  padding: 10px 0px;
+
+  &__productCard {
+    @include flexbox(column, center, center);
+    padding: 10px 20px;
+    margin: 10px;
+    width: 20%;
+    background-color: white;
+    border-radius: 15px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.25);
+
+    &-img {
+      @include img-div(200px, 200px);
+    }
+
+    &-img img {
+      @include img-fit(contain);
+    }
+
+    &-title {
+      @include text-ellipsis;
+      width: 100%;
+      text-align: center;
+    }
+
+    &-des {
+      width: 100%;
+      @include para-ellipsis(2);
+    }
+
+    &-rating {
+      margin: 8px 0px;
+    }
+
+    &-price {
+      margin: 8px 0px;
+    }
+
+    &__buttons {
+      @include flexbox(row, center, center);
+      height: 50px;
+      width: 80%;
+
+      &-addToCart {
+        display: none;
+        width: 100px;
+        height: 30px;
+        border-radius: 10px;
+      }
+
+      &-addToWishlist {
+        width: 100px;
+        height: 30px;
+        border-radius: 10px;
+        margin: 10px;
+      }
+    }
+  }
+
+  &__productCard:hover &__productCard__buttons-addToCart {
+    display: block;
+  }
+  &__productCard:hover {
+    transform: scale(1.04);
+    box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.2);
+  }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1439px) {
+  .productPage{
+    &__productCard{
+      width: 25%;
+      &-img {
+        @include img-div(150px, 150px);
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .filterBar{
+    justify-content: center;
+  }
+  .productPage{
+    top:155px;
+    &__productCard{
+      width: 40%;
+      &-img {
+        @include img-div(150px, 150px);
+      }
+    }
+  }
+}
+@media screen and (max-width: 767px) {
+  .filterBar{
+    justify-content: center;
+  }
+  .productPage{
+    top:155px;
+    flex-direction: column;
+    align-items: center;
+
+    &__productCard{
+      width:80%;
+    }
+  }
+}

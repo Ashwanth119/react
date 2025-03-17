@@ -1,0 +1,133 @@
+@import "../assets/scss/mixins.scss";
+.displayOrder {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 80%;
+  @include position(absolute,0,0,0,100px);
+  background: #f1f1f1;
+  border-radius: 10px;
+
+  &-close {
+    width: 100%;
+    text-align: end;
+    align-content: start;
+    button {
+      background-color: red;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      height:25px;
+      width:30px;
+    }
+  }
+  &__section {
+    width:60%;
+    background: #f1f1f1;
+    &__cart {
+      display: flex;
+      padding: 10px;
+      margin: 10px;
+      width: 90%;
+      border-radius: 10px;
+      background-color: white;
+      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
+
+      &__img {
+        width: 40%;
+        text-align: center;
+        align-content: center;
+        &-imgDiv {
+          @include img-div(200px, 200px);
+        }
+        &-imgDiv img {
+          @include img-fit(contain);
+        }
+      }
+
+      &-title {
+        width: 30%;
+        text-align: center;
+        align-content: center;
+        @include text-ellipsis();
+      }
+      &-summary {
+        width: 30%;
+        @include flexbox(row, space-around, center);
+      }
+    }
+  }
+  &-summary{
+    width:40%;
+    background: #f1f1f1;
+    @include flexbox(row,center,start);
+}
+}
+
+@media screen and (min-width:1024px)and (max-width:1439px){
+    .displayOrder{
+        left:50px;
+        &__section{
+            &__cart{
+                &__img{
+                    &-imgDiv{
+                        @include img-div(150px, 150px);
+                    }
+                }
+                &-summary{
+                    @include flexbox(column, center, center);
+                }
+            }
+        }
+    }
+}
+@media screen and (min-width:768px)and (max-width:1023px){
+    .displayOrder{
+        left:50px;
+        &__section{
+            &__cart{
+                flex-direction: column;
+                align-items: center;
+                &__img{
+                    &-imgDiv{
+                        @include img-div(150px, 150px);
+                    }
+                }
+                &-title{
+                    width:100%;
+                }
+                &-summary{
+                    width:100%;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width:767px){
+    .displayOrder{
+        width:80%;
+        left:30px;
+        &__section{
+            width:100%;
+            &__cart{
+                flex-direction: column;
+                align-items: center;
+                margin:10px 5px;
+                &__img{
+                    &-imgDiv{
+                        @include img-div(100px, 100px);
+                    }
+                }
+                &-title{
+                    width:100%;
+                }
+                &-summary{
+                    width:100%;
+                }
+            }
+        }
+        &-summary{
+            width:100%;
+        }
+    }
+}

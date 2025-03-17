@@ -1,0 +1,36 @@
+@import '../assets/scss/mixins.scss';
+.summaryCard {
+    width: 90%;
+    @include position(sticky, 20px, 0px, normal, normal);
+    @include flexbox(column, start, center);
+    background-color: white;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+
+    &__row {
+      @include flexbox(row,center,center);
+      width: 90%;
+
+      &-title {
+        width: 30%;
+        text-align: center;
+        @include text-ellipsis;
+      }
+      &-count {
+        width: 30%;
+        text-align: center;
+      }
+      &-price {
+        width: 30%;
+        text-align: center;
+      }
+    }
+    &-total {
+      width: 80%;
+      text-align: end;
+      @media screen and (min-width:768px)and (max-width:1023px){
+        width:100%;
+        text-align:center;
+      }
+    }
+  }

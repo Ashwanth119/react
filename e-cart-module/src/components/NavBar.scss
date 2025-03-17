@@ -1,0 +1,98 @@
+@import "../assets/scss/mixins.scss";
+.navBar {
+    @include position(fixed,0px,normal,normal,normal);
+  width: 100%;
+  z-index: 2;
+  height: 50px;
+  @include flexbox(row, space-around, center);
+  background-color: rgb(158, 157, 157);
+
+  &-title {
+    margin: 8px 8px;
+    width: 200px;
+  }
+  &-title:hover {
+    cursor: pointer;
+  }
+  &__search {
+    width: 40%;
+    @include flexbox(row, center, center);
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 2px 0px;
+
+    &-img {
+      width: 10%;
+      text-align: center;
+    }
+
+    &-img img {
+      font-size: 100px;
+    }
+    &-input {
+      width: 90%;
+      height: 90%;
+      border: none;
+      outline: none;
+    }
+  }
+  &-user select,
+  &-user button {
+    border: none;
+    background-color: white;
+    padding: 5px;
+    border-radius: 5px;
+    width: 120px;
+  }
+  &__icons {
+    @include flexbox(row, center, center);
+    width: 20%;
+
+    &-cartIcon {
+      text-align: center;
+    }
+    &-wishListIcon {
+      text-align: center;
+      padding-right: 20px;
+    }
+    &-ordersIcon {
+      text-align: center;
+      padding-left: 20px;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .navBar {
+    &-user select,
+    &-user button {
+      width: 60px;
+    }
+  }
+}
+@media screen and (max-width: 767px) {
+  .navBar {
+    &-title {
+      width: 140px;
+    }
+    &__search {
+      width: 25%;
+      &-img {
+        display: none;
+      }
+    }
+    &-user select,
+    &-user button {
+      display: none;
+    }
+    &__icons {
+      &-wishListIcon {
+        display: none;
+      }
+      &-ordersIcon {
+        padding: 0px;
+      }
+    }
+  }
+}
